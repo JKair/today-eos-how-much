@@ -25,7 +25,7 @@ eos.yesterday = function(){
 }
 
 eos.todayPeriod = function(){
-    var start = new Date('2017/07/01 00:00:00').getTime();
+    var start = new Date('2017-07-01T13:00:00.000Z').getTime();
     var now = new Date().getTime();
 
     return Math.round((now - start) / 1000 / 60 / 60 / 23);
