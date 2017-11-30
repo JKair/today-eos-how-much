@@ -2,9 +2,9 @@ var eth = function(){}
 var mainWindow = null;
 var price = null;
 
-eos.init = function(mainWindow) {
+eth.init = function(mainWindow) {
     this.mainWindow = mainWindow;
-    this.period = this.todayPeriod();
+    this.getPrice();
 }
 
 eth.getPrice = function() {

@@ -28,9 +28,9 @@ setTimeout(function () {
     app.init().then(function(res){
         this.mainWindow = res;
         eos.init(this.mainWindow);
+        eth.init(this.mainWindow);
         eos.getPrice();
         var today = eos.today();
-        console.log(this.mainWindow.$('#app'));
         this.mainWindow.particleground(this.mainWindow.document.getElementById('app'), {
             dotColor: '#463d3d',
             lineColor: '#463d3d'
