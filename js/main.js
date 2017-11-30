@@ -1,6 +1,6 @@
-var app = require('./app.js');
-var eos = require('./eos.js');
-var eth = require('./eth.js');
+var app = require('./js/app.js');
+var eos = require('./js/eos.js');
+var eth = require('./js/eth.js');
 var mainWindow = null;
 var lastError = null;
 process.on(

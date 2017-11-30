@@ -1,6 +1,6 @@
 {
   "name": "today-eos-how-much",
   "chromium-args": "--mixed-context",
-  "main": "main.js",
+  "main": "js/main.js",
   "nodejs": "true"
 }
