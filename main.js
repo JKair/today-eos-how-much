@@ -1,5 +1,6 @@
 var app = require('./app.js');
 var eos = require('./eos.js');
+var eth = require('./eth.js');
 var mainWindow = null;
 var lastError = null;
 process.on(
@@ -31,8 +32,8 @@ setTimeout(function () {
         var today = eos.today();
         console.log(this.mainWindow.$('#app'));
         this.mainWindow.particleground(this.mainWindow.document.getElementById('app'), {
-            dotColor: '#ffffff',
-            lineColor: '#ffffff'
+            dotColor: '#463d3d',
+            lineColor: '#463d3d'
         });
         setColock(Math.floor(today['colock'] / 1000));
     })
@@ -40,7 +41,6 @@ setTimeout(function () {
 
 
 function setColock(clock) {
-    console.log(clock);
     hour = Math.floor(clock / 60 / 60);
     min  = Math.floor(clock / 60 % 60);
     sec  = Math.floor(clock % 60);
