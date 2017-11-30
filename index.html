@@ -7,8 +7,7 @@
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
 <body id="app">
-<div id="main_box">
-
+<div id="main_box" onclick="copy();" title="点一下复制合约地址">
     <div>
         <div class="animation hour-1">0</div>
         <div class="animation hour-2">0</div>
@@ -19,12 +18,14 @@
         <div class="animation sec-1">0</div>
         <div class="animation sec-2">0</div>
     </div>
-    <div class="eos-icon"><img style="width:100px;height:100px"src="./EOS_spinning_logo.gif" alt=""></div>
+    <div class="eos-icon"><img style="width:120px;height:146px"src="./EOS_spinning_logo.gif" alt=""></div>
     <div class="price">
         <div class="">现在Eth的价格：<span id="eth">6666</span></div>
         <div class="">现在ico的价格：<span id="eos-now">0.002</span></div>
-        <div class="">现在ico的价格：<span id="eos-now">0.002</span></div>
+        <div class="">投入的eth数量：<span id="eth-now">dailyTotal</span></div>
+        <div class="">昨天ico的价格：<span id="eos-yesterday">0.002</span></div>
     </div>
+    <div style="display:none" id="detail">0xd0a6E6C54DbC68Db5db3A091B171A77407Ff7ccf</div>
 </div>
 <iframe style="display:none" id="eos" src="https://eos.io/eos-sales-statistic.php" width="" height=""></iframe>
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>

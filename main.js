@@ -24,21 +24,29 @@ chrome.developerPrivate.openDevTools({
 });
 
 setTimeout(function () {
-    console.log("bg-run");
     app.init().then(function(res){
         this.mainWindow = res;
         eos.init(this.mainWindow);
-        eth.init(this.mainWindow);
+        eth.init(this.mainWindow, setEosPrice);
         eos.getPrice();
+        this.mainWindow.copy = copy;
+
         var today = eos.today();
         this.mainWindow.particleground(this.mainWindow.document.getElementById('app'), {
             dotColor: '#463d3d',
             lineColor: '#463d3d'
         });
         setColock(Math.floor(today['colock'] / 1000));
+
     })
 });
-
+function copy() {
+  nw.Clipboard.get().set("0xd0a6E6C54DbC68Db5db3A091B171A77407Ff7ccf");
+}
+function setEosPrice(ethPrice) {
+    eos.setYesterdayPrice(ethPrice);
+    eos.setTodayPrice(ethPrice);
+}
 
 function setColock(clock) {
     hour = Math.floor(clock / 60 / 60);
