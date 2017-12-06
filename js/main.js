@@ -26,11 +26,7 @@ chrome.developerPrivate.openDevTools({
 setTimeout(function () {
     app.init().then(function(res){
         this.mainWindow = res;
-        eos.init(this.mainWindow);
-        eth.init(this.mainWindow, setEosPrice);
-        eos.getPrice();
-        this.mainWindow.copy = copy;
-
+        start();
         var today = eos.today();
         this.mainWindow.particleground(this.mainWindow.document.getElementById('app'), {
             dotColor: '#463d3d',
@@ -40,8 +36,20 @@ setTimeout(function () {
 
     })
 });
+
+function start() {
+    eos.init(this.mainWindow);
+    eth.init(this.mainWindow, setEosPrice);
+    eos.getPrice();
+    this.mainWindow.copy = copy;
+
+    setTimeout(function(){
+        start()
+    }, 5000);
+}
+
 function copy() {
-  nw.Clipboard.get().set("0xd0a6E6C54DbC68Db5db3A091B171A77407Ff7ccf");
+    nw.Clipboard.get().set("0xd0a6E6C54DbC68Db5db3A091B171A77407Ff7ccf");
 }
 function setEosPrice(ethPrice) {
     eos.setYesterdayPrice(ethPrice);
