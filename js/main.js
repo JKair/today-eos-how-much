@@ -3,6 +3,8 @@ var eos = require('./js/eos.js');
 var eth = require('./js/eth.js');
 var mainWindow = null;
 var lastError = null;
+var refreshTime = 5000;
+
 process.on(
     'uncaughtException',
     function (err)
@@ -45,7 +47,7 @@ function start() {
 
     setTimeout(function(){
         start()
-    }, 5000);
+    }, this.refreshTime);
 }
 
 function copy() {
