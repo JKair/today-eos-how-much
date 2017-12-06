@@ -19,11 +19,11 @@ process.on(
 );
 
 
-chrome.developerPrivate.openDevTools({
-    renderViewId: -1,
-    renderProcessId: -1,
-    extensionId: chrome.runtime.id
-});
+// chrome.developerPrivate.openDevTools({
+//     renderViewId: -1,
+//     renderProcessId: -1,
+//     extensionId: chrome.runtime.id
+// });
 
 setTimeout(function () {
     app.init().then(function(res){
@@ -35,7 +35,6 @@ setTimeout(function () {
             lineColor: '#463d3d'
         });
         setColock(Math.floor(today['colock'] / 1000));
-
     })
 });
 
@@ -56,6 +55,7 @@ function copy() {
 function setEosPrice(ethPrice) {
     eos.setYesterdayPrice(ethPrice);
     eos.setTodayPrice(ethPrice);
+    eos.setExchangePrice();
 }
 
 function setColock(clock) {

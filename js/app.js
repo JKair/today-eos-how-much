@@ -5,11 +5,10 @@ app.init = function () {
         nw.Window.open(
             "./index.html",
             function(_window) {
-                _window.showDevTools();
+                //_window.showDevTools();
                 setTimeout(function(){
                     _do(_window.window);
                 },5000)
-
             }
         );
     })
