@@ -16,10 +16,6 @@ eos.today = function() {
     var todayEos = this.allPrice[this.period];
     var colock = new Date(todayEos['ends']).getTime() - new Date().getTime();
 
-    if (colock < 0) {
-        this.period += 1;
-        return this.today();
-    }
     this.todayPrice = todayEos['price'];
 
     return {'eos' : todayEos, 'colock' : colock};
@@ -33,7 +29,7 @@ eos.todayPeriod = function() {
     var start = new Date('2017-07-01T13:00:00.000Z').getTime();
     var now = new Date().getTime();
 
-    return Math.round((now - start) / 1000 / 60 / 60 / 23);
+    return Math.ceil((now - start) / 1000 / 60 / 60 / 23);
 }
 
 eos.setExchangePrice = function() {
