@@ -15,6 +15,11 @@ eos.getPrice = function() {
 eos.today = function() {
     var todayEos = this.allPrice[this.period];
     var colock = new Date(todayEos['ends']).getTime() - new Date().getTime();
+
+    if (colock < 0) {
+        this.period += 1;
+        return this.today();
+    }
     this.todayPrice = todayEos['price'];
 
     return {'eos' : todayEos, 'colock' : colock};

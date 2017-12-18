@@ -29,6 +29,7 @@ setTimeout(function () {
     app.init().then(function(res){
         this.mainWindow = res;
         start();
+        this.mainWindow.copy = copy;
         var today = eos.today();
         this.mainWindow.particleground(this.mainWindow.document.getElementById('app'), {
             dotColor: '#463d3d',
@@ -42,11 +43,11 @@ function start() {
     eos.init(this.mainWindow);
     eth.init(this.mainWindow, setEosPrice);
     eos.getPrice();
-    this.mainWindow.copy = copy;
 
     setTimeout(function(){
         start()
     }, this.refreshTime);
+    this.mainWindow.$('#eos').src = "https://eos.io/eos-sales-statistic.php";
 }
 
 function copy() {
